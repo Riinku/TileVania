@@ -11,13 +11,14 @@ public class Menu : MonoBehaviour
 
     private void Start() 
     {
-        helpText.SetActive(false);
-        helpButton.SetActive(true);
+        if(helpButton != null && helpText != null)
+        {
+            helpText.SetActive(false);
+            helpButton.SetActive(true);
+        }
     }
 
-
     public void StartGameButton()
-
     {
         SceneManager.LoadScene(1);
     }
@@ -27,4 +28,10 @@ public class Menu : MonoBehaviour
         helpButton.SetActive(false);
         helpText.SetActive(true);
     }
+
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }

@@ -35,6 +35,7 @@ public class LevelExit : MonoBehaviour
     IEnumerator LoadNextScene()
     {
         yield return new WaitForSeconds(timeToWait);
+        FindObjectOfType<GameSession>().ResetScore();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);       // load next scene in the build index
         levelComplete.SetActive(false);
     }

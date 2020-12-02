@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/* 
+Currently Unused to make coins re-appear after every death, makes game more challenging to grab all
+coins and make it to exit before water overflows the dungeon.
+*/
+
 public class ScenePersist : MonoBehaviour
 {
     static ScenePersist instance = null;

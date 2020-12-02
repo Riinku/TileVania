@@ -56,6 +56,7 @@ public class GameSession : MonoBehaviour
         {
             playerLives --;
             livesText.text = playerLives.ToString();
+            ResetScore();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);       
         }
         else
@@ -80,9 +81,15 @@ public class GameSession : MonoBehaviour
         scoreText.text = playerScore.ToString();
     }
 
+    public void ResetScore()
+    {
+        playerScore = 0;
+        updatePlayerScore();
+    }
 
-   
-
-
-
+    public void DestroyGameSession()
+    {
+        Destroy(gameObject);
+    }
 }
+

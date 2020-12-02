@@ -7,11 +7,17 @@ public class Coin : MonoBehaviour
     [SerializeField] AudioClip coinPickUpSFX = null;
     [SerializeField] int pointsWorth = 1;
 
+    bool isPickedUp = false;
+
+
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        AudioSource.PlayClipAtPoint(coinPickUpSFX, Camera.main.transform.position);
-        FindObjectOfType<GameSession>().AddToScore(pointsWorth);
-        Destroy(gameObject);
-        //call a method to increase the players coin count
+        if(!isPickedUp)
+        {
+            isPickedUp = true;
+            AudioSource.PlayClipAtPoint(coinPickUpSFX, Camera.main.transform.position);
+            FindObjectOfType<GameSession>().AddToScore(pointsWorth);
+            Destroy(gameObject);
+        }
     }
 }
